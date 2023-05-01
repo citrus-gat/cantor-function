@@ -4,7 +4,6 @@ Plotting f_n for the sequence of functions that defines the Cantor function usin
 
 import argparse
 import matplotlib.pyplot as plt
-# import numpy as np 
 
 # If (x0, y0) to (xt, yt) is slopy, create a staircase 
 # and return those 4 points 
@@ -54,8 +53,7 @@ def main():
     n = args.n 
 
     print('Generating function...')
-    dots = fn(n)
-    
+    dots = fn(n)  
     xs, ys = transpose(dots)
 
     # Approximate the measure of C_n, which is where the function is increasing 
@@ -69,24 +67,9 @@ def main():
                 m += (xs[i+1] - xs[i])
         print('measure (length) of the increasing region:', m)
 
-    print('start plotting...')
+    print('Plotting...')
     ftitle = r'$f_{' + str(n) + '}$'
     plt.plot(xs, ys)
-    # plt.plot(xs, ys, 'go')
-    # nextdots = iterate(dots)
-    # next_xs, next_ys = transpose(nextdots)
-    # plt.plot(next_xs, next_ys, 'go')
-    # plt.plot([0,1],[0,1], 'go')
-    # plt.text(0,0, '(0,0)')
-    # plt.text(1,1, '(1,1)')
-    # plt.plot([1/3,2/3,1/9,2/9,2/3+1/9,2/3+2/9],[1/2,1/2,1/4,1/4,3/4,3/4], 'go')
-    # plt.text(1/9-0.01, 1/4+0.01, r'$\left(\dfrac{1}{9}, \dfrac{1}{4}\right)$', va='bottom', ha='center')
-    # plt.text(2/9+0.01, 1/4+0.01, r'$\left(\dfrac{2}{9}, \dfrac{1}{4}\right)$', va='bottom', ha='center')
-    # plt.text(7/9-0.01, 3/4+0.01, r'$\left(\dfrac{7}{9}, \dfrac{3}{4}\right)$', va='bottom', ha='center')
-    # plt.text(8/9+0.01, 3/4+0.01, r'$\left(\dfrac{8}{9}, \dfrac{3}{4}\right)$', va='bottom', ha='center')
-    # plt.xticks(xs)
-    # plt.yticks(ys)
-    # print(xs)
     plt.title(ftitle)
     plt.show()
 
